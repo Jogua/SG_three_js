@@ -44,7 +44,6 @@ function main() {
     var axes = new THREE.AxisHelper(20); //para dibujar los ejes
     scene.add(axes); //a�adir a la escena
 
-//    astro = new Astro(scene, "tierra", 3, 0.1, "textures/tierra.jpg");
     grupoOrbital = new GrupoOrbital();
     scene.add(grupoOrbital.getNodo());
 
