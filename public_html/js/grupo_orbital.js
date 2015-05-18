@@ -7,13 +7,13 @@ function GrupoOrbital() {
     nodoRaiz.add(sol.getNodo());
     
     var tierra = new Planeta("tierra", 3, 16, 0.02, 0.02, "textures/tierra.jpg");
+    nodoRaiz.add(tierra.getNodo());
     planetas.push(tierra);
+    
     var luna = new Satelite("luna", 1, 5, 0, 0.04, "textures/luna.jpg");
     luna.setPickableTras(true);
-//    tierra.setPickableTras(true);
     tierra.addSatelite(luna);
     
-    nodoRaiz.add(tierra.getNodo());
     
     this.animar = function (){
         sol.animar();
