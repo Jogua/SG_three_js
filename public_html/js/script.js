@@ -8,17 +8,17 @@ var onClick = function (e) {
     MOUSE.click();
 };
 
-var distancia = 10;
-var zoom = function (e) {
-    if (e.deltaY > 0) {
-        distancia -= 0.5;
-    } else if (e.deltaY) {
-        distancia += 0.5;
-    }
-}
+//var distancia = 10;
+//var zoom = function (e) {
+//    if (e.deltaY > 0) {
+//        distancia -= 0.5;
+//    } else if (e.deltaY) {
+//        distancia += 0.5;
+//    }
+//}
 
 addEventListener("click", onClick);
-addEventListener("mousewheel", zoom);
+//addEventListener("mousewheel", zoom);
 
 main();
 
@@ -50,11 +50,15 @@ function main() {
 
 //A�adir luz
 //Si se usa materiales hay q poner una luz pq si no no se ve.
-    var spotLight = new THREE.SpotLight(0xffffff);
+    var pointLight = new THREE.PointLight(0xffffff);
 //    spotLight.position.set(-40, 60, -10);
-    spotLight.position.set(0, 0, 1000);
-    spotLight.castShadow = true;
-    scene.add(spotLight);
+    pointLight.position.set(0, 0, 0);
+    pointLight.castShadow = true;
+    scene.add(pointLight);
+    
+//Luz ambiente
+    var ambientLight = new THREE.AmbientLight(0x404040);
+    scene.add(ambientLight);
 
 // A�adir c�mara
     camera.position.x = 30;

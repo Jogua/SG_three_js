@@ -3,12 +3,14 @@ function GrupoOrbital() {
     
     var planetas = [];
     
-    var sol = new Sol("sol", 5, 0.02, "textures/sol.jpg");
+    var sol = new Sol("sol", 5, 0.1, "textures/sol.jpg");
     nodoRaiz.add(sol.getNodo());
     
-    var tierra = new Planeta("tierra", 3, 3, 0.02, 0.05, "textures/tierra.jpg");
+    var tierra = new Planeta("tierra", 3, 16, 0.02, 0.02, "textures/tierra.jpg");
     planetas.push(tierra);
-    var luna = new Satelite("luna", 1, 5, 0, 0.02, "textures/luna.jpg");
+    var luna = new Satelite("luna", 1, 5, 0, 0.04, "textures/luna.jpg");
+    luna.setPickableTras(true);
+//    tierra.setPickableTras(true);
     tierra.addSatelite(luna);
     
     nodoRaiz.add(tierra.getNodo());

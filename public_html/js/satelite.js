@@ -10,13 +10,25 @@ function Satelite(nombre, radio, distanciaAlPlaneta, vRotacion, vTraslacion, nom
     nodoTraslacion.add(astro.getEsfera());
 
     raiz.add(nodoTraslacion);
+    
+    var pickableTraslacion = false;
 
     this.animar = function () {
         astro.animar();
-        raiz.rotation.y += vTraslacion;
+        if (!pickableTraslacion || !MOUSE.isPressed()) {
+            raiz.rotation.y += vTraslacion;
+        }
     };
 
     this.getNodo = function () {
         return raiz;
+    };
+
+    this.setPickableRot = function (pick) {
+        astro.setPickableRot(pick);
+    };
+
+    this.setPickableTras = function (pick) {
+        pickableTraslacion = pick;
     };
 }
