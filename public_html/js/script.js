@@ -8,23 +8,30 @@ var onClick = function (e) {
     MOUSE.click();
 };
 
-//var distancia = 10;
-//var zoom = function (e) {
-//    if (e.deltaY > 0) {
-//        distancia -= 0.5;
-//    } else if (e.deltaY) {
-//        distancia += 0.5;
-//    }
-//}
+var distancia = 0.99;
+var veces = 0;
+var zoom = function (e) {
+    if (e.deltaY > 0 && veces > -50) {
+//        distancia -= 0.01;
+        camera.position.x /= distancia;
+        camera.position.y /= distancia;
+        camera.position.z /= distancia;
+        veces--;
+    } else if (e.deltaY < 0 && veces < 50) {
+//        distancia += 0.01;
+        camera.position.x *= distancia;
+        camera.position.y *= distancia;
+        camera.position.z *= distancia;
+        veces++;
+    }
+};
 
 addEventListener("click", onClick);
-//addEventListener("mousewheel", zoom);
+addEventListener("mousewheel", zoom);
 
 main();
 
 function renderScene() {
-//    camera.position.z = distancia;
-    step = 0.05;
     grupoOrbital.animar();
 //    luna.animar();
 //alert("h");
@@ -53,7 +60,7 @@ function main() {
 //    spotLight.position.set(-40, 60, -10);
     pointLight.position.set(0, 0, 0);
     scene.add(pointLight);
-    
+
 //Luz ambiente
     var ambientLight = new THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
