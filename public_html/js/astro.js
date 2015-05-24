@@ -5,8 +5,6 @@ function Astro(radio, vRotacion, nombreTextura) {
     var esferaGeometry = new THREE.SphereGeometry(radio, 100, 100);
     var esferaMaterial = new THREE.MeshPhongMaterial({map: textura});
     var esfera = new THREE.Mesh(esferaGeometry, esferaMaterial);
-    esfera.receiveShadow = true;
-    esfera.castShadow = true;
     esfera.name = "esfera";
 
     var pickableRotacion = false;
@@ -28,10 +26,8 @@ function Astro(radio, vRotacion, nombreTextura) {
     this.setMaterialEmisivo = function (emisivo) {
         if (emisivo) {
             esfera.material = new THREE.MeshBasicMaterial({map: textura});
-//            esfera.castShadow = false;
         } else {
             esfera.material = new THREE.MeshPhongMaterial({map: textura});
-            esfera.castShadow = true;
         }
     }
 }

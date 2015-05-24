@@ -3,9 +3,6 @@ function Sol(nombre, radio, vRotacion, nombreTextura){
     var astro = new Astro(radio, vRotacion, nombreTextura);
 
     astro.getEsfera().name = nombre;
-    
-//    var material = new THREE.
-//    astro.setMaterial(material);
     astro.setMaterialEmisivo(true);
 
     this.animar = function () {

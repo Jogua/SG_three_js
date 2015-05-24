@@ -35,14 +35,14 @@ function renderScene() {
 function main() {
 
 
-    renderer.setClearColor(0xFFFFFF, 1.0);
+    renderer.setClearColor(0x00ffff, 1.0);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.shadowMapEnabled = true; //se habilita el modelado de sombra
+    renderer.shadowMapEnabled = false;
     renderer.setSize(window.innerWidth, window.innerHeight);
 
 //A�adir ejes
-    var axes = new THREE.AxisHelper(20); //para dibujar los ejes
-    scene.add(axes); //a�adir a la escena
+//    var axes = new THREE.AxisHelper(20); //para dibujar los ejes
+//    scene.add(axes); //a�adir a la escena
 
     grupoOrbital = new GrupoOrbital();
     scene.add(grupoOrbital.getNodo());
@@ -52,7 +52,6 @@ function main() {
     var pointLight = new THREE.PointLight(0xffffff);
 //    spotLight.position.set(-40, 60, -10);
     pointLight.position.set(0, 0, 0);
-    pointLight.castShadow = true;
     scene.add(pointLight);
     
 //Luz ambiente

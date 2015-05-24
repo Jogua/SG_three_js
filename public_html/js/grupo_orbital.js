@@ -3,7 +3,7 @@ function GrupoOrbital() {
     
     var planetas = [];
     
-    var sol = new Sol("sol", 5, 0.1, "textures/sol.jpg");
+    var sol = new Sol("sol", 5, 0.01, "textures/sol.jpg");
     nodoRaiz.add(sol.getNodo());
     
     var tierra = new Planeta("tierra", 3, 16, 0.02, 0.02, "textures/tierra.jpg");

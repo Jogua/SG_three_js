@@ -27,7 +27,6 @@ function Planeta(nombre, radio, distanciaAlSol, vRotacion, vTraslacion, nombreTe
 
     this.addSatelite = function (satelite) {
         nodoTraslacion.add(satelite.getNodo());
-//        raiz.add(satelite.getNodo());
         satelites.push(satelite);
     };
 
